@@ -16,6 +16,7 @@ defmodule TelemetryMetricsStatsd.Formatter.Datadog do
       format_sampling_rate(metric.reporter_options),
       format_metric_tags(tags)
     ]
+    |> then(&Logger.debug("StatsD: #{inspect(&1)}"))
   end
 
   defp format_metric_name([segment]) do
